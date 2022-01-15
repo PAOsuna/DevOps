@@ -11,9 +11,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Step Two
         run: |
-          touch test.yaml
-          echo "my First file" >> test.yaml
-          cat test.yaml
+          touch ${{ secrets.MY_FILE_NAME }}.yaml
+          echo "my First file" >> ${{ secrets.MY_FILE_NAME }}.yaml
+          cat ${{ secrets.MY_FILE_NAME }}.yaml
           pwd
   job2:
     name: Second Job
@@ -32,4 +32,5 @@ jobs:
       - name: Step Two
         run: |
           date
-          touch test.yaml
+          touch ${{ secrets.MY_FILE_NAME }}.yaml
+          pwd
